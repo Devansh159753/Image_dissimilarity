@@ -126,8 +126,8 @@ def SSIM_method(image1, image2):
 def diff_img_method(image1, image2):
     grayA = Image.fromarray(image1)
     out_aff = Image.fromarray(image2)
-    cv2.imwrite('im1.jpg', grayA)
-    cv2.imwrite('im2.jpg', out_aff)
+    cv2.imwrite('im1.jpg', image1)
+    cv2.imwrite('im2.jpg', image2)
     diff('im1.jpg', 
      'im2.jpg', 
      delete_diff_file=False, 
