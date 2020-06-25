@@ -11,7 +11,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from skimage.measure import compare_ssim
 import imutils
-from diffimg import diff
+from diffimg import diff  #you may install it using 'pip install diffimg'
 from PIL import Image
 from pystackreg import StackReg
 
@@ -48,10 +48,10 @@ def drawMatches(img1, kp1, img2, kp2, matches):
 def compare(filename1, filename2):
     img1 = cv2.imread(filename1)          # queryImage
     img2 = cv2.imread(filename2)          # trainImage
-    img1 = cv2.detailEnhance(img1, sigma_s=10, sigma_r=0.15)
+    img1 = cv2.detailEnhance(img1, sigma_s=10, sigma_r=0.15)  #it is not always necessary to use detail enhance. please check results in both cases and use best results.
     img2 = cv2.detailEnhance(img2, sigma_s=10, sigma_r=0.15)
     # Initiate SIFT detector
-    sift = cv2.xfeatures2d.SIFT_create()
+    sift = cv2.xfeatures2d.SIFT_create()   #sift is patented and not free in latest version so you may try older versions.
 
     # find the keypoints and descriptors with SIFT
     kp1, des1 = sift.detectAndCompute(img1,None)
